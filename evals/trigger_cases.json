@@ -1,0 +1,33 @@
+{
+  "positive_concepts": {
+    "prd": ["prd", "产品需求文档", "需求说明书", "产品方案", "功能需求"],
+    "authoring": ["写", "创建", "生成", "梳理", "改写", "审查", "评审", "更新", "补全"],
+    "collaboration": ["产品", "设计", "研发", "管理层", "上级", "跨职能", "协作"],
+    "product_thinking": ["why now", "用户价值", "目标用户", "功能范围", "验收标准", "产品思维"]
+  },
+  "description_required_concepts": ["prd", "authoring", "collaboration", "product_thinking"],
+  "recommended_threshold": 0.5,
+  "negative_patterns": ["只做技术架构", "只要 api 设计", "prd 拆成研发任务", "直接开始开发", "只画原型"],
+  "should_trigger": [
+    {"text": "帮我写一份给上级和产品、设计、研发一起评审的 PRD。", "family": "create-standard"},
+    {"text": "把这些用户反馈梳理成产品方案，明确目标用户、功能范围和验收标准。", "family": "create-from-materials"},
+    {"text": "审查这份产品需求文档，重点看产品思维和研发协作时缺少的边界。", "family": "review"},
+    {"text": "更新 PRD 的权限、异常处理和验收标准章节，保留其他内容。", "family": "update"},
+    {"text": "这个需求很小，请写一个 Lean PRD，把给管理层看的结论放前面。", "family": "lean"},
+    {"text": "我有一个模糊的功能需求，先帮我梳理用户价值和产品范围。", "family": "discovery"}
+  ],
+  "should_not_trigger": [
+    {"text": "帮我修复这个 React 组件的样式问题。", "family": "frontend"},
+    {"text": "为登录系统设计 API 和数据库 schema。", "family": "technical-design"},
+    {"text": "把下周项目排期发到 Linear。", "family": "project-management"},
+    {"text": "分析这份销售数据并做图表。", "family": "analytics"},
+    {"text": "只画原型，不需要产品需求文档。", "family": "prototype-only"}
+  ],
+  "near_neighbor": [
+    {"text": "把 PRD 拆成研发任务并估算工期。", "family": "task-breakdown"},
+    {"text": "根据已有 PRD 只做技术架构和服务拆分。", "family": "architecture"},
+    {"text": "为一个新产品做市场规模和竞品研究。", "family": "market-research"},
+    {"text": "根据产品方案直接开始开发。", "family": "implementation"},
+    {"text": "根据需求只画原型，交互细节你来定。", "family": "prototype"}
+  ]
+}

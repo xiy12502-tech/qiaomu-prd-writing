@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "evidence_type": "recorded_fixture",
+  "provider_run": "missing evidence",
+  "human_blind_review": "missing evidence",
+  "cases": [
+    {
+      "id": "create-standard-from-vague-input",
+      "prompt": "我们想做一个企业邀请功能，给上级和产品设计研发评审，请写 PRD。",
+      "profile": "standard",
+      "baseline_output": "# 企业邀请功能\n做邮件邀请，目标转化率提升30%。包括输入邮箱和发送按钮。",
+      "with_skill_output": "# 企业邀请 PRD\n## 管理层决策摘要\n问题与 Why now【待确认】；目标用户是企业管理员；需要拍板：本期是否仅支持邮件邀请。\n## 范围与非范围\n本期范围：单人邮件邀请与状态查看。非范围：通讯录批量导入。\n## 功能需求\n### FR-001 发起邀请\n用户价值：管理员可邀请成员。状态、异常与权限：失败可重试，仅管理员可用。\n## 验收标准\nAC-001：有效邮箱提交后出现可追踪的邀请状态。",
+      "assertions": {
+        "required_patterns": ["管理层决策摘要", "【待确认】", "需要拍板", "范围与非范围", "FR-001", "状态、异常与权限", "验收标准"],
+        "forbidden_patterns": ["目标转化率提升30%"]
+      }
+    },
+    {
+      "id": "review-existing-prd",
+      "prompt": "审查一份只写了页面和按钮的 PRD。",
+      "profile": "review",
+      "baseline_output": "整体不错，建议再补充一些细节。",
+      "with_skill_output": "## 阻塞评审\n- 问题：只有页面和按钮，没有目标用户、核心流程与验收边界。\n- 影响：产品、设计、研发会对范围和完成标准产生不同理解。\n- 依据：现有正文未区分事实、假设和待确认项。\n- 修改建议：先补问题—用户—价值链，再按用户任务建立功能地图。",
+      "assertions": {
+        "required_patterns": ["阻塞评审", "问题：", "影响：", "依据：", "修改建议", "事实、假设"],
+        "forbidden_patterns": ["整体不错"]
+      }
+    },
+    {
+      "id": "controlled-update",
+      "prompt": "只更新既有 PRD 的权限和异常处理，保留其他内容。",
+      "profile": "update",
+      "baseline_output": "这是重写后的完整 PRD，所有问题已全部确认。",
+      "with_skill_output": "## 变更摘要\n仅更新 FR-002 的权限与异常处理，其他章节保持不变。\n## 影响范围\n设计需补无权限状态；研发需处理超时重试；测试需增加权限变化用例。\n## 遗留问题\n【待确认】权限在会话中变化时是否立即生效。",
+      "assertions": {
+        "required_patterns": ["变更摘要", "FR-002", "影响范围", "遗留问题", "【待确认】"],
+        "forbidden_patterns": ["已全部确认", "重写后的完整 PRD"]
+      }
+    }
+  ]
+}
