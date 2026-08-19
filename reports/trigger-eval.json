@@ -1,0 +1,229 @@
+{
+  "ok": true,
+  "threshold": 0.5,
+  "description_concepts": [
+    "authoring",
+    "collaboration",
+    "prd",
+    "product_thinking"
+  ],
+  "missing_description_concepts": [],
+  "summary": {
+    "total": 16,
+    "passed": 16,
+    "false_positive": 0,
+    "false_negative": 0,
+    "pass_rate": 1.0
+  },
+  "failures": [],
+  "results": {
+    "should_trigger": [
+      {
+        "prompt": "帮我写一份给上级和产品、设计、研发一起评审的 PRD。",
+        "family": "create-standard",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.75,
+        "matched_concepts": [
+          "authoring",
+          "collaboration",
+          "prd"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "把这些用户反馈梳理成产品方案，明确目标用户、功能范围和验收标准。",
+        "family": "create-from-materials",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 1.0,
+        "matched_concepts": [
+          "authoring",
+          "collaboration",
+          "prd",
+          "product_thinking"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "审查这份产品需求文档，重点看产品思维和研发协作时缺少的边界。",
+        "family": "review",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 1.0,
+        "matched_concepts": [
+          "authoring",
+          "collaboration",
+          "prd",
+          "product_thinking"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "更新 PRD 的权限、异常处理和验收标准章节，保留其他内容。",
+        "family": "update",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.75,
+        "matched_concepts": [
+          "authoring",
+          "prd",
+          "product_thinking"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "这个需求很小，请写一个 Lean PRD，把给管理层看的结论放前面。",
+        "family": "lean",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.75,
+        "matched_concepts": [
+          "authoring",
+          "collaboration",
+          "prd"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "我有一个模糊的功能需求，先帮我梳理用户价值和产品范围。",
+        "family": "discovery",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 1.0,
+        "matched_concepts": [
+          "authoring",
+          "collaboration",
+          "prd",
+          "product_thinking"
+        ],
+        "negative_pattern": null
+      }
+    ],
+    "should_not_trigger": [
+      {
+        "prompt": "帮我修复这个 React 组件的样式问题。",
+        "family": "frontend",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "为登录系统设计 API 和数据库 schema。",
+        "family": "technical-design",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.25,
+        "matched_concepts": [
+          "collaboration"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "把下周项目排期发到 Linear。",
+        "family": "project-management",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "分析这份销售数据并做图表。",
+        "family": "analytics",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "只画原型，不需要产品需求文档。",
+        "family": "prototype-only",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.5,
+        "matched_concepts": [
+          "collaboration",
+          "prd"
+        ],
+        "negative_pattern": "只画原型"
+      }
+    ],
+    "near_neighbor": [
+      {
+        "prompt": "把 PRD 拆成研发任务并估算工期。",
+        "family": "task-breakdown",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.5,
+        "matched_concepts": [
+          "collaboration",
+          "prd"
+        ],
+        "negative_pattern": "prd 拆成研发任务"
+      },
+      {
+        "prompt": "根据已有 PRD 只做技术架构和服务拆分。",
+        "family": "architecture",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.25,
+        "matched_concepts": [
+          "prd"
+        ],
+        "negative_pattern": "只做技术架构"
+      },
+      {
+        "prompt": "为一个新产品做市场规模和竞品研究。",
+        "family": "market-research",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.25,
+        "matched_concepts": [
+          "collaboration"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "根据产品方案直接开始开发。",
+        "family": "implementation",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.5,
+        "matched_concepts": [
+          "collaboration",
+          "prd"
+        ],
+        "negative_pattern": "直接开始开发"
+      },
+      {
+        "prompt": "根据需求只画原型，交互细节你来定。",
+        "family": "prototype",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": "只画原型"
+      }
+    ]
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "ok": true,
+  "evidence_type": "recorded_fixture",
+  "provider_run": "missing evidence",
+  "human_blind_review": "missing evidence",
+  "summary": {
+    "total": 3,
+    "with_skill_passed": 3
+  },
+  "results": [
+    {
+      "id": "create-standard-from-vague-input",
+      "baseline": {
+        "ok": false,
+        "missing": [
+          "管理层决策摘要",
+          "【待确认】",
+          "需要拍板",
+          "范围与非范围",
+          "FR-001",
+          "状态、异常与权限",
+          "验收标准"
+        ],
+        "forbidden_hits": [
+          "目标转化率提升30%"
+        ]
+      },
+      "with_skill": {
+        "ok": true,
+        "missing": [],
+        "forbidden_hits": []
+      }
+    },
+    {
+      "id": "review-existing-prd",
+      "baseline": {
+        "ok": false,
+        "missing": [
+          "阻塞评审",
+          "问题：",
+          "影响：",
+          "依据：",
+          "修改建议",
+          "事实、假设"
+        ],
+        "forbidden_hits": [
+          "整体不错"
+        ]
+      },
+      "with_skill": {
+        "ok": true,
+        "missing": [],
+        "forbidden_hits": []
+      }
+    },
+    {
+      "id": "controlled-update",
+      "baseline": {
+        "ok": false,
+        "missing": [
+          "变更摘要",
+          "FR-002",
+          "影响范围",
+          "遗留问题",
+          "【待确认】"
+        ],
+        "forbidden_hits": [
+          "已全部确认",
+          "重写后的完整 PRD"
+        ]
+      },
+      "with_skill": {
+        "ok": true,
+        "missing": [],
+        "forbidden_hits": []
+      }
+    }
+  ]
+}

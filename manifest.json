@@ -1,0 +1,41 @@
+{
+  "name": "qiaomu-prd-writer",
+  "version": "0.1.0",
+  "owner": "向阳乔木",
+  "updated_at": "2026-08-19",
+  "status": "active",
+  "maturity_tier": "production",
+  "lifecycle_stage": "initial",
+  "context_budget_tier": "production",
+  "upstream_inspiration": "chituai/prd-writer; phuryn/create-prd; github/awesome-copilot/prd; anatasof/NatPRD",
+  "upstream_sync": {
+    "mode": "semantic",
+    "last_reviewed": "2026-08-19"
+  },
+  "intent": {
+    "job_to_be_done": "把产品想法、协作材料或既有 PRD 整理为管理层可决策、产品设计研发可协作的中文 PRD，并明确事实、假设、取舍与待确认项。",
+    "target_users": ["产品经理", "产品负责人", "设计师", "研发负责人", "管理层评审者"],
+    "inputs": ["产品想法", "会议记录", "用户反馈", "业务规则", "既有 PRD", "研究与数据材料"],
+    "outputs": ["管理层决策摘要", "Lean 或 Standard PRD", "PRD 审查意见", "受控更新与变更影响", "待确认项"],
+    "exclusions": ["技术架构设计", "API 或数据库方案", "研发任务拆解", "项目排期", "原型图制作", "未经授权的外部发布"]
+  },
+  "qiaomu_defaults": {
+    "language": "zh-CN",
+    "default_profile": "standard",
+    "single_document": true,
+    "report_missing_evidence": true,
+    "max_questions_per_round": 3
+  },
+  "release_gates": {
+    "local_validation": "validated_2026-08-19",
+    "trigger_eval": "validated_16_of_16_recorded",
+    "output_fixture_eval": "validated_3_of_3_recorded",
+    "provider_run": "missing_evidence",
+    "human_cross_function_review": "missing_evidence"
+  },
+  "permission_boundary": {
+    "allowed_reads": ["user-provided product materials", "user-authorized workspace files"],
+    "allowed_writes": ["user-requested PRD destination", "skill-local reports during validation"],
+    "forbidden_writes": ["external systems without explicit request", "unrequested project files"]
+  }
+}

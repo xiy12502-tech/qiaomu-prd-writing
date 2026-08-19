@@ -1,0 +1,31 @@
+interface:
+  display_name: "Qiaomu PRD Writer"
+  short_description: "写作、审查和更新面向管理层与跨职能团队的中文 PRD"
+  default_prompt: "当用户要写、审查或更新 PRD、产品需求文档、功能需求或产品方案时，先区分事实/假设/待确认，再输出管理层决策摘要与跨职能 PRD；重点梳理产品判断、功能结构、流程状态、边界和验收标准。"
+compatibility:
+  canonical_format: "qiaomu-skill"
+  adapter_targets: ["codex", "generic-agent-skills", "openai", "claude", "generic", "agent-skills-compatible"]
+  activation:
+    phrases: ["写 PRD", "产品需求文档", "产品方案", "功能需求", "审查 PRD", "更新 PRD", "需求说明书"]
+  execution:
+    modes: ["create", "review", "update"]
+    profiles: ["lean", "standard"]
+    default_profile: "standard"
+    default_format: "Markdown single document"
+  trust:
+    no_fabricated_evidence: true
+    mark_assumptions_and_tbd: true
+    preserve_user_source_boundary: true
+  permissions:
+    default: "read-only-until-user-requests-save"
+    external_publish: "explicit-request-only"
+  degradation:
+    insufficient_context: "continue-with-labeled-assumptions-and-open-questions"
+    missing_metric_baseline: "mark-tbd-never-invent"
+    unavailable_external_source: "report-missing-evidence"
+gates:
+  package: "validated-2026-08-19"
+  trigger: "validated-16-of-16-recorded"
+  output_fixture: "validated-3-of-3-recorded"
+  provider_run: "missing-evidence"
+  human_cross_function_review: "missing-evidence"
